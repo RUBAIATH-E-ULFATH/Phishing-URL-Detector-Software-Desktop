@@ -18,7 +18,8 @@ class App(QMainWindow):
     def __init__(self):
         """Constructor."""
         super(App, self).__init__()
-        uic.loadUi(appFolder + "ui design/interface_v2.ui", self)  # Load the UI(User Interface) file.
+        uic.loadUi(appFolder + "ui design/interface_v2.ui",
+                   self)  # Load the UI(User Interface) file.
         self.main()
         self.makeWindowCenter()
         # Status Bar Message
@@ -45,9 +46,11 @@ class App(QMainWindow):
         status, feature_values = inspect_model.main(user_url)
         print(status)
         if status == 0:
-            QMessageBox.information(self, "Website Status", "Legitimate Website", QMessageBox.Ok)
+            QMessageBox.information(self, "Website Status",
+                                    "Legitimate Website", QMessageBox.Ok)
         elif status == 1:
-            QMessageBox.warning(self, "Website Status", "Phising Website", QMessageBox.Ok)
+            QMessageBox.warning(self, "Website Status", "Phising Website",
+                                QMessageBox.Ok)
         self.show_information_in_table(feature_values)
 
     def show_information_in_table(self, X):
@@ -82,13 +85,11 @@ class App(QMainWindow):
     def modeButtonEvent(self):
         # print("Button Clicked")
         if self.night_mode == False:
-            print("Light Ruba")
             self.modeButton.setText("Light")
             self.loadDarkMode()
             self.night_mode = True
 
         elif self.night_mode:
-            print("Dark Ruba")
             self.modeButton.setText("Dark")
             self.loadLightMode()
             self.night_mode = False
@@ -108,14 +109,18 @@ class App(QMainWindow):
         darkPalette.setColor(QPalette.Disabled, QPalette.Text, disabledColor)
         darkPalette.setColor(QPalette.Button, darkColor)
         darkPalette.setColor(QPalette.ButtonText, Qt.white)
-        darkPalette.setColor(QPalette.Disabled, QPalette.ButtonText, disabledColor)
+        darkPalette.setColor(QPalette.Disabled, QPalette.ButtonText,
+                             disabledColor)
         darkPalette.setColor(QPalette.BrightText, Qt.red)
         darkPalette.setColor(QPalette.Link, QColor(42, 130, 218))
         darkPalette.setColor(QPalette.Highlight, QColor(42, 130, 218))
         darkPalette.setColor(QPalette.HighlightedText, Qt.black)
-        darkPalette.setColor(QPalette.Disabled, QPalette.HighlightedText, disabledColor)
+        darkPalette.setColor(QPalette.Disabled, QPalette.HighlightedText,
+                             disabledColor)
         app.setPalette(darkPalette)
-        app.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }")
+        app.setStyleSheet(
+            "QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }"
+        )
 
     def loadLightMode(self):
         darkPalette = QtGui.QPalette()
@@ -131,14 +136,18 @@ class App(QMainWindow):
         darkPalette.setColor(QPalette.Disabled, QPalette.Text, disabledColor)
         darkPalette.setColor(QPalette.Button, darkColor)
         darkPalette.setColor(QPalette.ButtonText, Qt.black)
-        darkPalette.setColor(QPalette.Disabled, QPalette.ButtonText, disabledColor)
+        darkPalette.setColor(QPalette.Disabled, QPalette.ButtonText,
+                             disabledColor)
         darkPalette.setColor(QPalette.BrightText, Qt.red)
         darkPalette.setColor(QPalette.Link, QColor(42, 130, 218))
         darkPalette.setColor(QPalette.Highlight, QColor(42, 130, 218))
         darkPalette.setColor(QPalette.HighlightedText, Qt.black)
-        darkPalette.setColor(QPalette.Disabled, QPalette.HighlightedText, disabledColor)
+        darkPalette.setColor(QPalette.Disabled, QPalette.HighlightedText,
+                             disabledColor)
         app.setPalette(darkPalette)
-        app.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }")
+        app.setStyleSheet(
+            "QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }"
+        )
 
 
 if __name__ == '__main__':
